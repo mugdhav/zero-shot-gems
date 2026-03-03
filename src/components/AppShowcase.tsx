@@ -15,6 +15,7 @@ const AppShowcase = () => {
       (app) =>
         app.title.toLowerCase().includes(q) ||
         app.description.toLowerCase().includes(q) ||
+        app.name.toLowerCase().includes(q) ||
         app.tags.some((t) => t.toLowerCase().includes(q))
     );
   }, [query]);
@@ -22,14 +23,23 @@ const AppShowcase = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 text-white py-16 px-4">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]" />
+      <header
+        className="relative overflow-hidden py-16 px-4"
+        style={{ background: "var(--gradient-shebuilds)" }}
+      >
+        <div className="absolute inset-0 bg-black/20" />
         <div className="max-w-6xl mx-auto text-center relative z-[1]">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
-            Lovable.dev App Showcase
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-12 w-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+              <span className="text-2xl font-black text-white">S</span>
+            </div>
+            <span className="text-3xl font-black text-white tracking-tight">SheBuilds</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 text-white">
+            App Showcase
           </h1>
           <p className="text-lg sm:text-xl text-white/80">
-            Discover apps built with zero-shot prompts
+            Discover apps built with zero-shot prompts on Lovable
           </p>
         </div>
       </header>

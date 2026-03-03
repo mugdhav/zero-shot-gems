@@ -17,8 +17,8 @@ const SearchBar = ({ query, onQueryChange, resultCount, totalCount }: SearchBarP
           <Input
             value={query}
             onChange={(e) => onQueryChange(e.target.value)}
-            placeholder="Search apps by name, description, or tag…"
-            className="pl-10"
+            placeholder="Search apps by name, creator, or tag…"
+            className="pl-10 bg-card border-border text-foreground placeholder:text-muted-foreground"
           />
         </div>
         <span className="text-sm text-muted-foreground whitespace-nowrap">
