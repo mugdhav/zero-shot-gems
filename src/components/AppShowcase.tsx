@@ -3,6 +3,7 @@ import { sampleApps, type AppData } from "@/data/sampleApps";
 import SearchBar from "./SearchBar";
 import AppCard from "./AppCard";
 import PromptModal from "./PromptModal";
+import shebuildsLogo from "@/assets/shebuilds-logo-white.png";
 
 const AppShowcase = () => {
   const [query, setQuery] = useState("");
@@ -28,18 +29,22 @@ const AppShowcase = () => {
         style={{ background: "var(--gradient-shebuilds)" }}
       >
         <div className="absolute inset-0 bg-black/20" />
+        {/* Logo top-left */}
+        <div className="absolute top-6 left-6 z-10">
+          <img src={shebuildsLogo} alt="SheBuilds" className="h-10" />
+        </div>
         <div className="max-w-6xl mx-auto text-center relative z-[1]">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-12 w-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-              <span className="text-2xl font-black text-white">S</span>
-            </div>
-            <span className="text-3xl font-black text-white tracking-tight">SheBuilds</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 text-white">
             App Showcase
           </h1>
           <p className="text-lg sm:text-xl text-white/80">
-            Discover apps built with zero-shot prompts on Lovable
+            Discover apps built with zero-shot prompts on{" "}
+            <span className="inline-flex items-center gap-1">
+              Lovable
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-red-500 inline-block">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </span>
           </p>
         </div>
       </header>
