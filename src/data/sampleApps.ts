@@ -7,6 +7,7 @@ export interface AppData {
   publishedlink: string;
   prompt: string;
   thumbnail: string;
+  promptLang?: string;
 }
 
 /** Helper to get a Lovable app thumbnail from a published URL */
@@ -61,5 +62,26 @@ export const sampleApps: AppData[] = [
     publishedlink: "https://paper-sleuth.lovable.app",
     thumbnail: "https://iad.microlink.io/WOs6DsCfaIpHfvQv2GwtBex04sMav_V9tQt6mdA2yF8zdy53yuXYDHUQLV9Wrhc--vUsT-x2C3Fdm5MRGoAQpg.png",
     prompt: "Build an academic research paper search and management tool. Create a search interface that queries academic databases, displaying results with paper titles, authors, abstracts, publication dates, and citation counts. Include filters for publication year, field of study, and citation threshold. Add features to save papers to collections, export citations in multiple formats (APA, MLA, Chicago), highlight key findings, and create reading lists. Include a clean, scholarly interface with PDF preview capabilities.",
+  },
+  {
+    id: 5,
+    name: "Reenal",
+    title: "Headline Hero",
+    description: "Generate posts for multiple social media platforms from single content",
+    tags: ["socmed", "post", "ai", "generate"],
+    publishedlink: "https://headline-hero-app.lovable.app",
+    thumbnail: "https://iad.microlink.io/DzPfnX9cVNmDsm_II_jyKlHF6JjmjUWNEnYKH9Onyo9x9SHTksRZjp3JxsmTIklkhWYInnqtwMovsYLkuf9aEA.png",
+    prompt: "Build a social media content repurposing tool called Headline Hero. The user pastes a single piece of source content (article, blog post, or idea) into a text area. The app then generates tailored posts for Twitter/X (280 chars), LinkedIn (professional tone, up to 3000 chars), Instagram (caption + hashtag suggestions), and Facebook (conversational, shareable). Display each output in a tabbed card with a one-click copy button. Add a tone selector (professional, casual, witty) that adjusts all outputs simultaneously. Use a bold, energetic design with platform brand colors on each tab.",
+  },
+  {
+    id: 6,
+    name: "Mugdha",
+    title: "Sheti Mitra",
+    description: "Job portal for seasonal farm work in Marathi",
+    tags: ["farm", "work", "seasonal", "job", "post", "marathi"],
+    publishedlink: "https://sheti-mitra-app.lovable.app",
+    thumbnail: "https://iad.microlink.io/a3AimgOmtRZngPoE_mvK41mPmuH_nseGovWG8pSxYqaO9BNKih5OlYemvPXDU88aOCXHEiOs7KEiVg8zwZW2Gg.png",
+    prompt: "ग्रामीण भागातील शेतकऱ्यांसाठी हंगामी कामगारांसाठी शेती विषयक नोकऱ्या post करण्यासाठी मराठीत एक संकेतस्थळ तयार करा. या संकेतस्थळ मध्ये हंगामी कामगारांना नोकरीच्या post ला pratisad देण्याची सुविधा असावी. संकेतस्थळ demo साठी डमी data पण तयार करा.",
+    promptLang: "mr",
   },
 ];
