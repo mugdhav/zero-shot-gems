@@ -6,6 +6,7 @@ export interface AppData {
   tags: string[];
   publishedlink: string;
   prompt: string;
+  thumbnail: string;
 }
 
 /** Helper to get a Lovable app thumbnail from a published URL */
@@ -28,6 +29,7 @@ export const sampleApps: AppData[] = [
     description: "Smart recipe finder that matches available ingredients to delicious meal ideas",
     tags: ["recipe", "cooking", "ingredients", "food", "meal-planning"],
     publishedlink: "https://ingredient-to-kitchen.lovable.app",
+    thumbnail: "https://iad.microlink.io/hqECXsklVBnFjDZs_2g46eElIh1P8Vgr-qJ4dwLt06bQE0JntBmJAKNPA4qms5LgzPWKo-eGT7ezmj6BZu4ftQ.png",
     prompt: "Create a recipe finder web app where users can input ingredients they have at home, and the app suggests recipes they can make. Include a clean search interface with ingredient input fields, filter options for dietary preferences (vegetarian, vegan, gluten-free), and display recipe cards with images, cooking time, difficulty level, and ingredient lists. Add the ability to save favorite recipes and generate a shopping list for missing ingredients.",
   },
   {
@@ -37,6 +39,7 @@ export const sampleApps: AppData[] = [
     description: "Classic Flappy Bird style game with smooth controls and addictive gameplay",
     tags: ["game", "flappy-bird", "arcade", "entertainment", "casual"],
     publishedlink: "https://fly-dodge-play.lovable.app",
+    thumbnail: "https://iad.microlink.io/Cp_knBZVTrCi_3f2GvqRqBbYRZTgYrSea-hNDo0IICz_Xb8f3lvNuxaZrdHCiKUX_blo1gD2RRqJ0a0e3XP7yA.png",
     prompt: "Build a Flappy Bird clone game using React. The bird should respond to spacebar or click/tap controls, moving upward with each input and falling due to gravity. Generate randomly positioned pipes that scroll from right to left. Include collision detection, score tracking, game over screen with restart button, and smooth animations. Use canvas or CSS animations for fluid movement. Add sound effects for jumps, scoring, and collisions.",
   },
   {
@@ -46,6 +49,7 @@ export const sampleApps: AppData[] = [
     description: "Beautiful personal journaling app with AI-powered insights and reflections",
     tags: ["journaling", "ai", "wellness", "productivity", "mindfulness"],
     publishedlink: "https://bloom-journalling-ai.lovable.app/auth",
+    thumbnail: "https://iad.microlink.io/Jhcz-idgIpMCZh3D5t_1mv3ULFSQqpVChHVdNcsO3-YYmvi9YZ0R5HEUCpul42B13Uua8m8GD5Eztl_2vt6wXw.png",
     prompt: "Create an AI-powered journaling application with user authentication. Include a beautiful, calming interface for daily journal entries with rich text formatting. Integrate AI features that provide gentle prompts, mood analysis, and personalized reflection questions based on entry content. Add calendar view to browse past entries, mood tracking visualization, search functionality, and privacy settings. Use Supabase for authentication and data storage. Design should emphasize mindfulness and personal growth.",
   },
   {
@@ -55,6 +59,7 @@ export const sampleApps: AppData[] = [
     description: "Research paper discovery tool for finding and organizing academic publications",
     tags: ["research", "academic", "papers", "search", "bibliography"],
     publishedlink: "https://paper-sleuth.lovable.app",
+    thumbnail: "https://iad.microlink.io/WOs6DsCfaIpHfvQv2GwtBex04sMav_V9tQt6mdA2yF8zdy53yuXYDHUQLV9Wrhc--vUsT-x2C3Fdm5MRGoAQpg.png",
     prompt: "Build an academic research paper search and management tool. Create a search interface that queries academic databases, displaying results with paper titles, authors, abstracts, publication dates, and citation counts. Include filters for publication year, field of study, and citation threshold. Add features to save papers to collections, export citations in multiple formats (APA, MLA, Chicago), highlight key findings, and create reading lists. Include a clean, scholarly interface with PDF preview capabilities.",
   },
 ];

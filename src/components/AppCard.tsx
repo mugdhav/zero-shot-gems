@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import type { AppData } from "@/data/sampleApps";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +24,8 @@ const gradients = [
 
 const AppCard = ({ app, onClick }: AppCardProps) => {
   const gradient = gradients[(app.id - 1) % gradients.length];
+  const [imgFailed, setImgFailed] = useState(false);
+  const showImage = app.thumbnail && !imgFailed;
 
   return (
     <Card
@@ -30,12 +33,23 @@ const AppCard = ({ app, onClick }: AppCardProps) => {
       className="cursor-pointer overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 group border-border bg-card"
     >
       <AspectRatio ratio={16 / 9}>
-        <div
-          className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center relative`}
-        >
-          <span className="text-5xl font-black text-white/20 select-none">
-            {app.title.charAt(0)}
-          </span>
+        <div className="w-full h-full relative">
+          {showImage ? (
+            <img
+              src={app.thumbnail}
+              alt={app.title}
+              className="w-full h-full object-cover object-top"
+              onError={() => setImgFailed(true)}
+            />
+          ) : (
+            <div
+              className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}
+            >
+              <span className="text-5xl font-black text-white/20 select-none">
+                {app.title.charAt(0)}
+              </span>
+            </div>
+          )}
           {app.publishedlink && (
             <a
               href={app.publishedlink}
