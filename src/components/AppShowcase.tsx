@@ -2,12 +2,15 @@ import { useState, useMemo } from "react";
 import { sampleApps, type AppData } from "@/data/sampleApps";
 import SearchBar from "./SearchBar";
 import AppCard from "./AppCard";
+import SpotlightCard from "./SpotlightCard";
 import PromptModal from "./PromptModal";
+import { useSpotlight } from "@/hooks/useSpotlight";
 import shebuildsLogo from "@/assets/shebuilds-logo-white.png";
 
 const AppShowcase = () => {
   const [query, setQuery] = useState("");
   const [selectedApp, setSelectedApp] = useState<AppData | null>(null);
+  const spotlightApp = useSpotlight(30_000);
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
@@ -48,16 +51,26 @@ const AppShowcase = () => {
       <SearchBar query={query} onQueryChange={setQuery} resultCount={filtered.length} totalCount={sampleApps.length} />
 
       {/* Grid */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-        {filtered.length === 0 ? (
-          <p className="text-center text-muted-foreground py-20 text-lg">No results found for "{query}"</p>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((app) => (
-              <AppCard key={app.id} app={app} onClick={() => setSelectedApp(app)} />
-            ))}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Spotlight — sticky on desktop */}
+          <div className="lg:w-1/3 lg:sticky lg:top-8 lg:self-start shrink-0">
+            <SpotlightCard app={spotlightApp} onClickApp={setSelectedApp} />
           </div>
-        )}
+
+          {/* Grid */}
+          <div className="flex-1">
+            {filtered.length === 0 ? (
+              <p className="text-center text-muted-foreground py-20 text-lg">No results found for "{query}"</p>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {filtered.map((app) => (
+                  <AppCard key={app.id} app={app} onClick={() => setSelectedApp(app)} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
       </main>
 
       {/* Footer */}
