@@ -52,7 +52,7 @@ const AppShowcase = () => {
 
       {/* Grid */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-12">
           {/* Spotlight — sticky on desktop */}
           <div className="lg:w-1/3 lg:sticky lg:top-8 lg:self-start shrink-0">
             <SpotlightCard app={spotlightApp} onClickApp={setSelectedApp} />
