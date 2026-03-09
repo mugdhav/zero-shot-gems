@@ -10,6 +10,7 @@ import shebuildsLogo from "@/assets/shebuilds-logo-white.png";
 const AppShowcase = () => {
   const [query, setQuery] = useState("");
   const [selectedApp, setSelectedApp] = useState<AppData | null>(null);
+  const spotlightApp = useSpotlight(30_000);
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
