@@ -65,7 +65,22 @@ const AppCard = ({ app, onClick }: AppCardProps) => {
       </AspectRatio>
       <CardContent className="p-4 space-y-2">
         <h3 className="text-lg font-bold leading-tight text-foreground">{app.title}</h3>
-        <p className="text-xs text-muted-foreground">by {app.name}</p>
+        <p className="text-xs text-muted-foreground">
+          by{" "}
+          {app.creatorLink ? (
+            <a
+              href={app.creatorLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="hover:underline text-primary"
+            >
+              {app.name}
+            </a>
+          ) : (
+            app.name
+          )}
+        </p>
         <p className="text-sm text-muted-foreground line-clamp-2">{app.description}</p>
         <div className="flex flex-wrap gap-1.5 pt-1">
           {app.tags.map((tag) => (
