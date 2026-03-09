@@ -1,44 +1,30 @@
 
 
-# Lovable.dev App Showcase
+# Spotlight Section
 
-A single-page application showcasing apps built with zero-shot prompts on Lovable.dev.
+Add a "Spotlight" area to the left of the app grid that highlights a randomly selected app card, cycling every 30 seconds using a shuffle-without-repeat algorithm.
 
-## Header Section
-- Title: "Lovable.dev App Showcase" with subtitle "Discover apps built with zero-shot prompts"
-- Purple/blue tech-themed gradient accent
-- Clean, modern typography
+## Layout Change
 
-## Sticky Search Bar
-- Prominently placed below the header with sticky positioning
-- Real-time filtering across app titles, descriptions, and tags (case-insensitive)
-- Result count display (e.g., "Showing 6 of 9 apps")
-- "No results found" message when search yields nothing
+The `<main>` section will switch from a single grid to a two-column layout:
+- **Left (sticky):** Spotlight card (~1/3 width on desktop) with a "Spotlight" label and a glowing/accent border. On mobile, it sits above the grid as a full-width section.
+- **Right:** The existing app card grid (2 cols on lg instead of 3 to accommodate).
 
-## App Cards Grid
-- **Desktop:** 3 columns | **Tablet:** 2 columns | **Mobile:** 1 column
-- Each card shows:
-  - Placeholder thumbnail (16:9 aspect ratio) with gradient background
-  - Bold app title
-  - Brief description (max 20 words)
-  - Pill-shaped tag badges
-- Hover effects: subtle scale and shadow transitions (0.2-0.3s)
-- Rounded corners and soft shadows
+## Spotlight Logic (custom hook: `useSpotlight`)
 
-## Prompt Modal
-- Clicking a card opens a dialog overlay showing the full zero-shot prompt
-- App title at the top, prompt in a formatted code block
-- Scrollable for long content
-- Closes via X button, backdrop click, or ESC key
-- Semi-transparent backdrop
+- Maintain a `shuffledQueue` of indices `[0..N-1]`, shuffled randomly.
+- Pop from the queue every 30s via `setInterval`. When queue is empty, reshuffle and start over.
+- Return the current `sampleApps[index]` as the spotlighted app.
+- Uses `useState` + `useEffect` + `useRef` for the queue.
 
-## Sample Data
-- 9 sample apps across categories: productivity, games, dashboards, creative tools, e-commerce, and social features
-- Each with a realistic zero-shot prompt
+## Components
 
-## Component Structure
-- `AppShowcase` — main page layout
-- `SearchBar` — search input with result count
-- `AppCard` — individual app card
-- `PromptModal` — dialog for viewing prompts
+- **`SpotlightCard`** — A new component wrapping `AppCard` with a "✦ Spotlight" label, a subtle gradient border/glow, and a fade transition when the app changes.
+- Clicking it opens the same `PromptModal`.
+
+## Files to Create/Edit
+
+1. **Create `src/hooks/useSpotlight.ts`** — shuffle-cycle hook returning current spotlighted app.
+2. **Create `src/components/SpotlightCard.tsx`** — styled wrapper with label and transition.
+3. **Edit `src/components/AppShowcase.tsx`** — integrate spotlight into a 2-column layout beside the grid.
 
