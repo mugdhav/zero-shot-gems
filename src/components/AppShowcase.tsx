@@ -2,7 +2,9 @@ import { useState, useMemo } from "react";
 import { sampleApps, type AppData } from "@/data/sampleApps";
 import SearchBar from "./SearchBar";
 import AppCard from "./AppCard";
+import SpotlightCard from "./SpotlightCard";
 import PromptModal from "./PromptModal";
+import { useSpotlight } from "@/hooks/useSpotlight";
 import shebuildsLogo from "@/assets/shebuilds-logo-white.png";
 
 const AppShowcase = () => {
