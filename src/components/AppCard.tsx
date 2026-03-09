@@ -38,7 +38,8 @@ const AppCard = ({ app, onClick }: AppCardProps) => {
             <img
               src={app.thumbnail}
               alt={app.title}
-              className="w-full h-full object-cover object-top"
+              style={{ objectPosition: app.objectPosition ?? "top" }}
+              className="w-full h-full object-cover"
               onError={() => setImgFailed(true)}
             />
           ) : (

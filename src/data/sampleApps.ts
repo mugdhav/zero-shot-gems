@@ -9,6 +9,7 @@ export interface AppData {
   thumbnail: string;
   promptLang?: string;
   creatorLink?: string; // LinkedIn / X / Instagram profile URL
+  objectPosition?: string; // CSS object-position for thumbnail (default: top)
 }
 
 /** Helper to get a Lovable app thumbnail from a published URL */
@@ -126,6 +127,7 @@ export const sampleApps: AppData[] = [
     publishedlink: "https://build-a-town-play.lovable.app",
     thumbnail:
       "https://api.microlink.io/?url=https%3A%2F%2Fbuild-a-town-play.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
+    objectPosition: "center",
     prompt:
       "Create an interactive town-building drawing game for children with beautiful, whimsical illustrations. Allow players to draw or place buildings, houses, trees, roads, and decorations on a canvas to build their own town. Include a palette of colorful pre-designed elements (houses, shops, parks, vehicles, people) that can be dragged and placed. Add drawing tools for roads and custom decorations. Implement layers so items can overlap properly. Include a save/load feature for town designs, zoom and pan controls, and a gallery of example towns for inspiration. Use vibrant colors, smooth animations, and child-friendly UI with large, clear buttons and icons.",
     creatorLink: "https://www.linkedin.com/in/kritikasoni8/",
@@ -167,7 +169,7 @@ export const sampleApps: AppData[] = [
     tags: ["mental-health", "accessibility", "neurodivergent", "adhd", "wellness", "crisis-support"],
     publishedlink: "https://letspause.lovable.app",
     thumbnail:
-      "https://api.microlink.io/?url=https%3A%2F%2Fletspause.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
+      "https://api.microlink.io/?url=https%3A%2F%2Fletspause.lovable.app&screenshot=true&meta=false&embed=screenshot.url&waitFor=3000",
     prompt:
       "Build an emergency mental health support platform designed specifically for neurodivergent users (ADHD, autism, anxiety disorders) experiencing panic, stress, or cognitive overload. Create a sensory-safe interface with: minimal visual stimulation (no bright colors, busy patterns, or flashing elements), large touch targets, simple navigation with few choices at once, and dark mode support. Include voice-guided breathing exercises with visual aids (expanding circles, progress bars), grounding techniques (5-4-3-2-1 sensory method), calming soundscapes, and crisis contact quick-access buttons. Implement text-to-speech for all instructions, customizable session lengths, and the ability to save favorite exercises. Use gentle animations, reduced motion options, and a calming color palette. Add features like body scan meditations, thought journals, and emergency coping strategies with step-by-step audio guidance.",
     creatorLink: "https://www.linkedin.com/in/maitree-purohit-8b979622b",
