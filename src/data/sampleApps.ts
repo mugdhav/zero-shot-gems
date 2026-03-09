@@ -38,11 +38,11 @@ export const sampleApps: AppData[] = [
   {
     id: 2,
     name: "Mugdha",
-    title: "Sheti Mitra",
+    title: "Shetkari Mitra",
     description: "Job portal for seasonal farm work in Marathi",
     tags: ["farm", "work", "seasonal", "job", "post", "marathi"],
     publishedlink: "https://sheti-mitra-app.lovable.app",
-    thumbnail: "https://iad.microlink.io/9JC0Xa04CcaNCiF-c_oss_J8r71i94b4jj97bCN5-GQQDN76Wox154XHoBuEzJBnwO7zaELnd9a_jQv4mQjl_g.png",
+    thumbnail: "https://api.microlink.io/?url=https%3A%2F%2Fsheti-mitra-app.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
     prompt: "ग्रामीण भागातील शेतकऱ्यांसाठी हंगामी कामगारांसाठी शेती विषयक नोकऱ्या post करण्यासाठी मराठीत एक संकेतस्थळ तयार करा. या संकेतस्थळ मध्ये हंगामी कामगारांना नोकरीच्या post ला pratisad देण्याची सुविधा असावी. संकेतस्थळ demo साठी डमी data पण तयार करा.",
     promptLang: "mr",
     creatorLink: "https://linkedin.com/in/mugdhav",
