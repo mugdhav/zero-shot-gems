@@ -201,6 +201,19 @@ export const sampleApps: AppData[] = [
   },
   {
     id: 14,
+    name: "Aditi Lohumi",
+    title: "nead",
+    description: "Recovery and energy intelligence platform — meet the nead to be your best version with your friends",
+    tags: ["tracking", "fitness-recovery", "food", "wellness", "health"],
+    publishedlink: "https://nead-hq.lovable.app",
+    thumbnail:
+      "https://api.microlink.io/?url=https%3A%2F%2Fnead-hq.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
+    prompt:
+      "You are an expert full-stack engineer and product builder. I want to build nead — a recovery and energy intelligence platform for fitness enthusiasts. Think: Strava's social mechanics + MyFitnessPal's nutrition tracking + Whoop's recovery science, all in one app.",
+    creatorLink: "https://www.linkedin.com/in/aditilohumi/",
+  },
+  {
+    id: 15,
     name: "Amol",
     title: "Paper Sleuth",
     description: "Research paper discovery tool for finding and organizing academic publications",
