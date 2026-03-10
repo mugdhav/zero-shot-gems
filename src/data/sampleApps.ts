@@ -27,7 +27,7 @@ export const getAppThumbnail = (publishedlink: string): string => {
 export const sampleApps: AppData[] = [
   {
     id: 1,
-    name: "Mugdha",
+    name: "Mugdha Vairagade",
     title: "Fly Dodge Play",
     description: "Classic Flappy Bird style game with smooth controls and addictive gameplay",
     tags: ["game", "flappy-bird", "arcade", "entertainment", "casual"],
@@ -40,7 +40,7 @@ export const sampleApps: AppData[] = [
   },
   {
     id: 2,
-    name: "Mugdha",
+    name: "Mugdha Vairagade",
     title: "Shetkari Mitra",
     description: "Job portal for seasonal farm work in Marathi",
     tags: ["farm", "work", "seasonal", "job", "post", "marathi"],
