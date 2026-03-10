@@ -168,14 +168,39 @@ export const sampleApps: AppData[] = [
       "Voice-guided emergency support platform with sensory-safe UI for neurodivergent users to handle panic, stress, and cognitive overload",
     tags: ["mental-health", "accessibility", "neurodivergent", "adhd", "wellness", "crisis-support"],
     publishedlink: "https://letspause.lovable.app",
-    thumbnail:
-      "https://api.microlink.io/?url=https%3A%2F%2Fletspause.lovable.app&screenshot=true&meta=false&embed=screenshot.url&waitFor=3000",
+    thumbnail: "",
     prompt:
       "Build an emergency mental health support platform designed specifically for neurodivergent users (ADHD, autism, anxiety disorders) experiencing panic, stress, or cognitive overload. Create a sensory-safe interface with: minimal visual stimulation (no bright colors, busy patterns, or flashing elements), large touch targets, simple navigation with few choices at once, and dark mode support. Include voice-guided breathing exercises with visual aids (expanding circles, progress bars), grounding techniques (5-4-3-2-1 sensory method), calming soundscapes, and crisis contact quick-access buttons. Implement text-to-speech for all instructions, customizable session lengths, and the ability to save favorite exercises. Use gentle animations, reduced motion options, and a calming color palette. Add features like body scan meditations, thought journals, and emergency coping strategies with step-by-step audio guidance.",
     creatorLink: "https://www.linkedin.com/in/maitree-purohit-8b979622b",
   },
   {
     id: 12,
+    name: "Namrata Abhang",
+    title: "Aim Higher",
+    description: "Free study platform for MPSC & UPSC aspirants — access curated materials, upload personal notes, and discuss solutions",
+    tags: ["study", "government", "mpsc", "upsc", "jobs", "exams"],
+    publishedlink: "https://aim-higher-notes-hub.lovable.app",
+    thumbnail:
+      "https://api.microlink.io/?url=https%3A%2F%2Faim-higher-notes-hub.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
+    prompt:
+      "Register on AIM HIGHER to access free MPSC and UPSC study material via browser. Allow users to upload their own handwritten or typed notes. Include a scratchpad for solving and discussing answers. Provide organized topic-wise sections for both exams with a clean, distraction-free reading interface.",
+    creatorLink: "https://www.linkedin.com/in/namrata-abhang",
+  },
+  {
+    id: 13,
+    name: "Swanandi Bhende",
+    title: "Blossom",
+    description: "A platform celebrating women in tech — discover inspiring profiles, send letters of appreciation, and explore a community marketplace",
+    tags: ["women-in-tech", "community", "networking", "marketplace"],
+    publishedlink: "https://swan-bloom.lovable.app",
+    thumbnail:
+      "https://api.microlink.io/?url=https%3A%2F%2Fswan-bloom.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
+    prompt:
+      "A beautiful garden where each flower represents a woman in tech. Click a flower to discover her story and send a letter of appreciation. Explore the Backyard Bazaar marketplace, manage connections, and build meaningful relationships.",
+    creatorLink: "https://www.linkedin.com/in/swanandibhende/",
+  },
+  {
+    id: 14,
     name: "Amol",
     title: "Paper Sleuth",
     description: "Research paper discovery tool for finding and organizing academic publications",
