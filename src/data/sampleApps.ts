@@ -148,7 +148,7 @@ export const sampleApps: AppData[] = [
   },
   {
     id: 10,
-    name: "Madhushree Wagh",
+    name: "Madhushri Wagh",
     title: "AdRideCRM™",
     description:
       "Lovable app built on a smartphone. Connecting cab and auto drivers with advertisers to generate extra income through vehicle advertising",
