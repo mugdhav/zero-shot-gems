@@ -240,6 +240,19 @@ export const sampleApps: AppData[] = [
   },
   {
     id: 17,
+    name: "Vandana Sharma",
+    title: "VibeTogether",
+    description: "Discover and join events happening in your city — music, startups, sports, education, travel, and more",
+    tags: ["travel", "music", "startup", "education", "sports", "book-club"],
+    publishedlink: "https://vibetogether-unite.lovable.app",
+    thumbnail:
+      "https://api.microlink.io/?url=https%3A%2F%2Fvibetogether-unite.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
+    prompt:
+      "Sign up for VibeTogether to access all of your city's events.",
+    creatorLink: "https://www.linkedin.com/in/vandana-sharma-bb637439/",
+  },
+  {
+    id: 18,
     name: "Amol",
     title: "Paper Sleuth",
     description: "Research paper discovery tool for finding and organizing academic publications",
