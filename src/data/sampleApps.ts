@@ -223,6 +223,7 @@ export const sampleApps: AppData[] = [
       "https://api.microlink.io/?url=https%3A%2F%2Fholo-content-creator.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
     prompt:
       "Build an AI-powered content creation studio for Bollywood and filmy content creators. Include an AI Idea Generator for viral content ideas, trending templates for Instagram/YouTube/Reels, a Meme Studio for creating Bollywood memes, Music & Audio suggestions, AI-generated captions and hashtags, a Trend Detector, and an Analytics dashboard. Use a dark, vibrant theme with bold colors. Add Instagram connection for real-time insights and performance tracking.",
+    creatorLink: "https://www.linkedin.com/in/prarthana-mundra-01353a331/",
   },
   {
     id: 16,
@@ -235,6 +236,7 @@ export const sampleApps: AppData[] = [
       "https://api.microlink.io/?url=https%3A%2F%2Fsafe-and-sound-guard.lovable.app&screenshot=true&meta=false&embed=screenshot.url",
     prompt:
       "Build a women's safety app called SafeHer. Include a prominent SOS button that instantly alerts emergency contacts with location, a Voice SOS feature for hands-free activation, a Fake Call option to escape uncomfortable situations, Safe Ride tracking, Safety Tips, a Community section for peer support, and a Contacts manager for trusted people. Design with a clean, minimal interface using bold red accents for safety actions. Tagline: Your Safety, Your Power.",
+    creatorLink: "https://www.linkedin.com/in/ruchika-rangari-385b7431a/",
   },
   {
     id: 17,
