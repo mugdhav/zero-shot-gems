@@ -10,6 +10,8 @@ import shebuildsLogo from "@/assets/shebuilds-logo-white.png";
 type TabValue = "showcase" | "social";
 
 const SocialMediaTab = () => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     // Load Elfsight platform script
     if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
@@ -18,11 +20,43 @@ const SocialMediaTab = () => {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    // Poll for the widget being rendered
+    const interval = setInterval(() => {
+      const widget = document.querySelector('.elfsight-app-65460bdf-54af-4c35-a75d-e45f0a834a2e iframe, .elfsight-app-65460bdf-54af-4c35-a75d-e45f0a834a2e .eapps-widget');
+      if (widget) {
+        setLoading(false);
+        clearInterval(interval);
+      }
+    }, 500);
+
+    // Fallback timeout
+    const timeout = setTimeout(() => {
+      setLoading(false);
+      clearInterval(interval);
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-      <div className="elfsight-app-65460bdf-54af-4c35-a75d-e45f0a834a2e" data-elfsight-app-lazy></div>
+      {loading && (
+        <div className="flex flex-col items-center justify-center py-20 gap-4 animate-fade-in">
+          <div className="w-64">
+            <div className="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
+              <div className="h-full bg-primary rounded-full animate-[progress_2s_ease-in-out_infinite]" />
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">Loading LinkedIn posts…</p>
+        </div>
+      )}
+      <div className={loading ? 'opacity-0 h-0 overflow-hidden' : 'animate-fade-in'}>
+        <div className="elfsight-app-65460bdf-54af-4c35-a75d-e45f0a834a2e" data-elfsight-app-lazy></div>
+      </div>
     </div>
   );
 };
