@@ -79,7 +79,7 @@ const AppShowcase = () => {
           <div className="flex justify-center gap-2 mt-6">
             <button
               onClick={() => setActiveTab("showcase")}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+              className={`min-w-[160px] px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                 activeTab === "showcase"
                   ? "bg-white text-gray-900 shadow-lg"
                   : "bg-white/20 text-white hover:bg-white/30"
@@ -89,7 +89,7 @@ const AppShowcase = () => {
             </button>
             <button
               onClick={() => setActiveTab("social")}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+              className={`min-w-[160px] px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                 activeTab === "social"
                   ? "bg-white text-gray-900 shadow-lg"
                   : "bg-white/20 text-white hover:bg-white/30"
