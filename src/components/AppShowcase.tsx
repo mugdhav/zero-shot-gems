@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { sampleApps, type AppData } from "@/data/sampleApps";
 import SearchBar from "./SearchBar";
 import AppCard from "./AppCard";
@@ -7,9 +7,30 @@ import PromptModal from "./PromptModal";
 import { useSpotlight } from "@/hooks/useSpotlight";
 import shebuildsLogo from "@/assets/shebuilds-logo-white.png";
 
+type TabValue = "showcase" | "social";
+
+const SocialMediaTab = () => {
+  useEffect(() => {
+    // Load Elfsight platform script
+    if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
+      const script = document.createElement("script");
+      script.src = "https://elfsightcdn.com/platform.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+      <div className="elfsight-app-65460bdf-54af-4c35-a75d-e45f0a834a2e" data-elfsight-app-lazy></div>
+    </div>
+  );
+};
+
 const AppShowcase = () => {
   const [query, setQuery] = useState("");
   const [selectedApp, setSelectedApp] = useState<AppData | null>(null);
+  const [activeTab, setActiveTab] = useState<TabValue>("showcase");
   const spotlightApp = useSpotlight(30_000);
 
   const filtered = useMemo(() => {
@@ -34,45 +55,80 @@ const AppShowcase = () => {
           <img src={shebuildsLogo} alt="SheBuilds" className="h-10" />
         </div>
         <div className="max-w-6xl mx-auto text-center relative z-[1]">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 text-white">App Showcase</h1>
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 text-white">
+            {activeTab === "showcase" ? "App Showcase" : "Social Media Posts"}
+          </h1>
           <p className="text-lg sm:text-xl text-white/80">
-            Discover apps built with{" "}
-            <span className="inline-flex items-center gap-1">
-              Lovable
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-red-500 inline-block">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-              </svg>
-            </span>
-            {" "}at the SheBuilds buildathon in Pune, India on International Women's Day 2026
+            {activeTab === "showcase" ? (
+              <>
+                Discover apps built with{" "}
+                <span className="inline-flex items-center gap-1">
+                  Lovable
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-red-500 inline-block">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </span>
+                {" "}at the SheBuilds buildathon in Pune, India on International Women's Day 2026
+              </>
+            ) : (
+              "LinkedIn posts from the SheBuilds buildathon community"
+            )}
           </p>
+
+          {/* Tab buttons */}
+          <div className="flex justify-center gap-2 mt-6">
+            <button
+              onClick={() => setActiveTab("showcase")}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+                activeTab === "showcase"
+                  ? "bg-white text-gray-900 shadow-lg"
+                  : "bg-white/20 text-white hover:bg-white/30"
+              }`}
+            >
+              App Showcase
+            </button>
+            <button
+              onClick={() => setActiveTab("social")}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+                activeTab === "social"
+                  ? "bg-white text-gray-900 shadow-lg"
+                  : "bg-white/20 text-white hover:bg-white/30"
+              }`}
+            >
+              Social Media Posts
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Search */}
-      <SearchBar query={query} onQueryChange={setQuery} resultCount={filtered.length} totalCount={sampleApps.length} />
-
-      {/* Grid */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Spotlight — sticky on desktop */}
-          <div className="lg:w-1/3 lg:sticky lg:top-8 lg:self-start shrink-0">
-            <SpotlightCard app={spotlightApp} onClickApp={setSelectedApp} />
-          </div>
+      {activeTab === "showcase" ? (
+        <>
+          {/* Search */}
+          <SearchBar query={query} onQueryChange={setQuery} resultCount={filtered.length} totalCount={sampleApps.length} />
 
           {/* Grid */}
-          <div className="flex-1">
-            {filtered.length === 0 ? (
-              <p className="text-center text-muted-foreground py-20 text-lg">No results found for "{query}"</p>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {filtered.map((app) => (
-                  <AppCard key={app.id} app={app} onClick={() => setSelectedApp(app)} />
-                ))}
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+            <div className="flex flex-col lg:flex-row gap-12">
+              <div className="lg:w-1/3 lg:sticky lg:top-8 lg:self-start shrink-0">
+                <SpotlightCard app={spotlightApp} onClickApp={setSelectedApp} />
               </div>
-            )}
-          </div>
-        </div>
-      </main>
+              <div className="flex-1">
+                {filtered.length === 0 ? (
+                  <p className="text-center text-muted-foreground py-20 text-lg">No results found for "{query}"</p>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {filtered.map((app) => (
+                      <AppCard key={app.id} app={app} onClick={() => setSelectedApp(app)} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </main>
+        </>
+      ) : (
+        <SocialMediaTab />
+      )}
 
       {/* Footer */}
       <footer className="text-center py-6 text-xs text-muted-foreground">
@@ -82,7 +138,6 @@ const AppShowcase = () => {
         </a>
       </footer>
 
-      {/* Modal */}
       <PromptModal app={selectedApp} open={!!selectedApp} onOpenChange={(open) => !open && setSelectedApp(null)} />
     </div>
   );
