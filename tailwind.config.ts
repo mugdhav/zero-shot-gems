@@ -80,6 +80,11 @@ export default {
             height: "0",
           },
         },
+        progress: {
+          "0%": { width: "0%", marginLeft: "0%" },
+          "50%": { width: "60%", marginLeft: "20%" },
+          "100%": { width: "0%", marginLeft: "100%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
