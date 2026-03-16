@@ -7,7 +7,8 @@ const RedirectNotice = ({ children }: { children: React.ReactNode }) => {
   const [redirecting, setRedirecting] = useState(false);
 
   useEffect(() => {
-    if (window.location.hostname === OLD_HOST) {
+    const params = new URLSearchParams(window.location.search);
+    if (window.location.hostname === OLD_HOST || params.get("from") === "old") {
       setRedirecting(true);
       const timer = setTimeout(() => {
         window.location.href = TARGET_URL + window.location.pathname;
