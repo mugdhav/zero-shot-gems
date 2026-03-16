@@ -1,5 +1,10 @@
 import AppShowcase from "@/components/AppShowcase";
+import RedirectNotice from "@/components/RedirectNotice";
 
-const Index = () => <AppShowcase />;
+const Index = () => (
+  <RedirectNotice>
+    <AppShowcase />
+  </RedirectNotice>
+);
 
 export default Index;
